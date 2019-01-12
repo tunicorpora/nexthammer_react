@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom'
 import TopBar from './components/topbar'
 import TaskMenu from './components/taskmenu'
 import CorpusMenu from './components/corpusmenu'
+import CorpusDesktop from './components/corpusdesktop'
+import grid from './grid.scss'; // For Sass
 
 import {createStore} from 'redux';
 
@@ -34,10 +36,10 @@ export default class Main extends Component{
 
         return (
             <main>
-            current lang: {this.props.corpus.active_language}
                 <TopBar />  
                 <CorpusMenu {...this.props} />
                 <TaskMenu {...this.props} />
+                <CorpusDesktop {...this.props} />
             </main>
         )
     }

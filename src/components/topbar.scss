@@ -1,0 +1,34 @@
+
+$tbheight: 3em;
+.topbar {
+    height: $tbheight;
+    //border-bottom:1px solid darkgrey;
+    display:flex;
+    flex-flow: row nowrap;
+
+    > div + div{
+        margin-left:1em;
+
+    
+    }
+
+}
+
+.button{
+
+    background: darkgrey;
+    border-radius:9px;
+    color:white;
+    padding: 1.2em;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    &:hover{
+        cursor: pointer;
+        background:darken(white,8%);
+        color:black;
+    }
+}
+
+

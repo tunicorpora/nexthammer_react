@@ -6,9 +6,11 @@
   "directories": {
     "test": "tests"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "scripts": {
+      "start": "webpack-dev-server --mode development",
+      "build-development": "webpack --mode development",
+      "build": "webpack --mode production"
+    },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hrmJ/nexthammer.git"
@@ -35,11 +37,16 @@
     "webpack-cli": "^3.2.1"
   },
   "dependencies": {
+    "css-loader": "^2.1.0",
+    "extract-text-webpack-plugin": "4.0.0-beta.0",
     "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.11.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",
     "redux": "^4.0.1",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
     "webpack-dev-server": "^3.1.14"
   }
 }

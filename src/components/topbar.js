@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {createStore} from 'redux';
-import {pickLanguage} from './../redux/actions'
+import {pickLanguage} from './../redux/actions';
+import styles from './topbar.scss';
 
 export default class extends Component{
 
@@ -15,9 +16,9 @@ export default class extends Component{
     render() {
 
         return (
-            <nav>
-                <span>Corpus</span>
-                <span>Action</span>
+            <nav className={styles.topbar}>
+                <div className={styles.button}>Corpus</div>
+                <div className={styles.button}>Run</div>
             </nav>
         )
 
