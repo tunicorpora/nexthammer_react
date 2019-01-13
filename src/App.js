@@ -5,7 +5,8 @@ function mapStateToProps(state) {
 
     return {
         corpus: state.corpus,
-        task: state.task
+        task: state.task,
+        menus: state.menus
     }
 
 }

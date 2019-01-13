@@ -1,9 +1,10 @@
-import React, {Component} from 'react'
-import ReactDOM from 'react-dom'
-import TopBar from './components/topbar'
-import TaskMenu from './components/taskmenu'
-import CorpusMenu from './components/corpusmenu'
-import CorpusDesktop from './components/corpusdesktop'
+import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
+import TopBar from './components/topbar';
+import TaskMenu from './components/taskmenu';
+import CorpusMenu from './components/corpusmenu';
+import CorpusDesktop from './components/corpusdesktop';
+import DropDownMenu from './components/DropDownMenu';
 import grid from './grid.scss'; // For Sass
 
 import {createStore} from 'redux';
@@ -32,13 +33,17 @@ export default class Main extends Component{
 
     render() {
 
-        console.log(this.props.task)
+        const {  menus  } =  this.props
 
         return (
             <main>
-                <TopBar />  
-                <CorpusMenu {...this.props} />
-                <TaskMenu {...this.props} />
+                <TopBar {...this.props} />  
+                <DropDownMenu visibility_class={menus.corpusmenu}>
+                    <CorpusMenu {...this.props} />
+                </DropDownMenu>
+                <DropDownMenu visibility_class={menus.taskmenu}>
+                    <TaskMenu {...this.props} />
+                </DropDownMenu>
                 <CorpusDesktop {...this.props} />
             </main>
         )

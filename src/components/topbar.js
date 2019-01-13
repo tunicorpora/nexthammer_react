@@ -7,17 +7,17 @@ import styles from './topbar.scss';
 export default class extends Component{
 
 
-    pickLang(select) {
-        console.log("Moro")
-        console.log(ev)
-        //this.props.store.dispatch(pickLanguage(this.))
+    toggleMenu(menuname) {
+        console.log("Toggling " + menuname);
+        const visibility = this.props.menus[menuname] == "hidden" ? "visible_flex" : "hidden";
+        this.props.store.dispatch(toggleMenu(menuname, visibility));
     }
 
     render() {
 
         return (
             <nav className={styles.topbar}>
-                <div className={styles.button}>Corpus</div>
+                <div onClick={() => this.toggleMenu("corpusmenu") } className={styles.button}>Corpus</div>
                 <div className={styles.button}>Run</div>
             </nav>
         )
