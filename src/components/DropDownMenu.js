@@ -5,6 +5,8 @@ export default function (props) {
 
         const { visibility_class } = props;
 
+        console.log("ddmenu: " + visibility_class)
+
         return (
             <div className={general_styles[visibility_class]}>
                 {props.children}

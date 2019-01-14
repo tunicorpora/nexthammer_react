@@ -16,7 +16,7 @@ export function listLanguages(langs){
 
 /**
  *
- * Sets the active in the current corpus.
+ * Sets the active language in the current corpus.
  *
  */
 export function pickLanguage(language){

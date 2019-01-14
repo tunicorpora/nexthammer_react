@@ -19,7 +19,7 @@ const store = createStore(appReducer,
             tasktype: "none"
         },
         menus: {
-            corpusmenu: "hidden",
+            corpusmenu: "visible_flex",
             taskmenu: "hidden"
         }
     }

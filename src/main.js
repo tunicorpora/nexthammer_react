@@ -35,6 +35,8 @@ export default class Main extends Component{
 
         const {  menus  } =  this.props
 
+        console.log("rendering: " + JSON.stringify(menus))
+
         return (
             <main>
                 <TopBar {...this.props} />  
