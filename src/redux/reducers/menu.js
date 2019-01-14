@@ -6,12 +6,9 @@ export default function menuReducer(state = {}, action) {
 
     switch(type) {
         case TOGGLE_MENU: {
-            return Object.assign(
-                state,
-                {
-                    [ menu.menuname ]: menu.visibility
-                }
-            );
+            let newstate = Object.assign({}, state);
+            newstate[menu.menuname] = menu.visibility
+            return newstate
         }
         default:
             return state

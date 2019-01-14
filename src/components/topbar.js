@@ -18,7 +18,7 @@ export default class extends Component{
         return (
             <nav className={styles.topbar}>
                 <div onClick={() => this.toggleMenu("corpusmenu") } className={styles.button}>Corpus</div>
-                <div className={styles.button}>Run</div>
+                <div onClick={() => this.toggleMenu("taskmenu") } className={styles.button}>Run</div>
             </nav>
         )
 
