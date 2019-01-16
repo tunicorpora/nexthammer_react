@@ -2,12 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 import {createStore} from 'redux'
-import appReducer from  './redux/reducers'
+//import appReducer from  './redux/reducers'
 import {Provider} from 'react-redux'
+import configureStore from './redux/store'
+import DevTools from './DevTools.jsx'
 
 
-const store = createStore(appReducer,
-    {
+const store = configureStore({
         corpus: {
             name: "pest_inter",
             available_languages: ["fi", "ru", "en", "sv", "fr"],
@@ -26,6 +27,10 @@ const store = createStore(appReducer,
 );
 
 ReactDOM.render(
-   <Provider store={store}> <App /> </Provider>, 
-    document.getElementById('root'));
+    <Provider store={store}> 
+        <App /> 
+        { (process.env.NODE_ENV !== 'production') && <DevTools />}
+    </Provider>, 
+    document.getElementById('root')
+);
 
