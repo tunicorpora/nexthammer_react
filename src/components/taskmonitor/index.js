@@ -2,12 +2,12 @@ import React  from 'react'
 import styles from './styles.scss'; // For Sass
 
 
-export default (  ) => {
+export default ( task  ) => {
 
 
         return (
             <div className={styles.Home}>
-                Corpus desktop....
+            {task.status}
             </div>
         )
 

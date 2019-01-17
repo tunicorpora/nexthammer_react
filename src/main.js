@@ -4,38 +4,21 @@ import TopBar from './components/topbar';
 import TaskMenu from './components/taskmenu';
 import CorpusMenu from './components/corpusmenu';
 import CorpusDesktop from './components/corpusdesktop';
+import TaskMonitor from './components/taskmonitor';
 import DropDownMenu from './components/DropDownMenu';
-import grid from './grid.scss'; // For Sass
-
-import {createStore} from 'redux';
+import grid from './grid.scss'; 
 
 export default class Main extends Component{
 
 
     constructor(props){
         super(props);
-        //this.state = props.store.getState(this.state)
     }
 
-    componentDidMount() {
-
-        //const { store } = this.props
-        //this.unsubscribe = store.subscribe( () => {
-        //    console.log("A change!");
-        //    this.setState({ ...store.getState() })
-        //})
-    
-    }
-
-    componentWillUnmount ( ) {
-        this.unsubscribe()
-    }
 
     render() {
 
-        const {  menus  } =  this.props
-
-        console.log("rendering: " + JSON.stringify(menus))
+        const {  menus, task  } =  this.props
 
         return (
             <main>
@@ -46,7 +29,8 @@ export default class Main extends Component{
                 <DropDownMenu visibility_class={menus.taskmenu}>
                     <TaskMenu {...this.props} />
                 </DropDownMenu>
-                <CorpusDesktop {...this.props} />
+                <TaskMonitor { ...task } />
+                <CorpusDesktop  />
             </main>
         )
     }
