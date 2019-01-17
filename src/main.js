@@ -23,12 +23,8 @@ export default class Main extends Component{
         return (
             <main>
                 <TopBar {...this.props} />  
-                <DropDownMenu visibility_class={menus.corpusmenu}>
-                    <CorpusMenu {...this.props} />
-                </DropDownMenu>
-                <DropDownMenu visibility_class={menus.taskmenu}>
-                    <TaskMenu {...this.props} />
-                </DropDownMenu>
+                <DropDownMenu visibility_class={menus.corpusmenu}> <CorpusMenu {...this.props} /> </DropDownMenu>
+                <DropDownMenu visibility_class={menus.taskmenu}> <TaskMenu {...this.props} /> </DropDownMenu>
                 <TaskMonitor { ...task } />
                 <CorpusDesktop  />
             </main>

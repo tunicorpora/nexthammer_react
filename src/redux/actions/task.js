@@ -5,6 +5,8 @@ import {
     } from './../actiontypes'
 import api_url from './api_url'
 import {thunkCreator} from './utils.js'
+import React from 'react'
+import ResultObject from '../../components/resultobjects/ResultObject.jsx'
 
 /**
  *
@@ -20,8 +22,6 @@ function createCodes(codes){
  *
  * Fetches a frequency list
  *
- * @return a function with one argument
- *
  */
 export function fetchFreqlist(corpus) {
 
@@ -30,7 +30,9 @@ export function fetchFreqlist(corpus) {
 
     return thunkCreator({
         types: [FREQUENCYLIST_REQUEST, FREQUENCYLIST_SUCCESS, FREQUENCYLIST_ERROR],
-        promise: fetch(url).then(response => response.json())
+        promise: fetch(url)
+                    .then(response => response.json())
+                    .then(data =><ResultObject data={data} type={"freqlist"} />)
     })
 
 } 

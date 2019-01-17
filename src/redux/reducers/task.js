@@ -13,10 +13,10 @@ export default function taskReducer(state = {}, action) {
 
     switch(type) {
         case FREQUENCYLIST_REQUEST: {
-            return { status: "running", result: []}
+            return { status: "running", result: [], type: "freqlist"}
         }
         case FREQUENCYLIST_SUCCESS: {
-            return { status: "ready", result: task.result}
+            return { status: "ready", result: task.result, type: "freqlist"}
         }
         case FREQUENCYLIST_ERROR: {
             console.log("request error")

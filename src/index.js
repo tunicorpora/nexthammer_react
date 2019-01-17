@@ -18,12 +18,16 @@ const store = configureStore({
         },
         task: {
             status: "idle",
-            result: []
+            type: "",
+            result: undefined
         },
         menus: {
             corpusmenu: "hidden",
             taskmenu: "hidden"
-        }
+        },
+//        desktop: {
+//            items: []
+//        }
     }
 );
 
