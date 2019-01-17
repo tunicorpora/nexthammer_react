@@ -17,7 +17,8 @@ const store = configureStore({
             picked_codes: ["mini_age_sea_1936_fi", "un_association_agriculture_1921_fi", "un_cert_able_seamen_1946_fi"]
         },
         task: {
-            tasktype: "none"
+            status: "idle",
+            result: []
         },
         menus: {
             corpusmenu: "hidden",

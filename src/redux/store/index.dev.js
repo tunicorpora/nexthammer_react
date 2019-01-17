@@ -1,6 +1,6 @@
 import { createStore, compose } from 'redux'
 import { persistState } from 'redux-devtools'
-
+import middleware from './middleware'
 import appReducer from '../reducers'
 import DevTools from '../../DevTools.jsx'
 
@@ -12,8 +12,9 @@ function getSessionKey () {
 }
 
 const enhancer = compose(
-  DevTools.instrument(),
-  persistState(getSessionKey())
+    middleware,
+    DevTools.instrument(),
+    persistState(getSessionKey())
 )
 
 
