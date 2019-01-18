@@ -14,7 +14,6 @@ export default ( task  ) => {
 
         return (
             <div className={styles.Home}>
-                {result ? result : indicator}
             </div>
         )
 

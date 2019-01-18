@@ -4,19 +4,26 @@ import {
     FREQUENCYLIST_ERROR
     } from './../actiontypes'
 import { fetchFreqlist } from './../actions'
+import cuid from 'cuid'
 
 export default function taskReducer(state = {}, action) {
 
     const { type, ...task} = action;
 
-    console.log(action)
 
     switch(type) {
         case FREQUENCYLIST_REQUEST: {
-            return { status: "running", result: [], type: "freqlist"}
+            let newtask = Object.assign({}, state);
+            newtask.status = "running";
+            return newtask
         }
         case FREQUENCYLIST_SUCCESS: {
-            return { status: "ready", result: task.result, type: "freqlist"}
+            let newtask = Object.assign({}, state);
+            const res_id = cuid();
+            newtask.status = "ready";
+            newtask.current_result_id = res_id;
+            newtask.resultobjects.push({id: res_id, res: task.result, type: "freqlist"});
+            return newtask;
         }
         case FREQUENCYLIST_ERROR: {
             console.log("request error")

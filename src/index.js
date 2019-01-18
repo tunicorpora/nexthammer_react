@@ -19,7 +19,8 @@ const store = configureStore({
         task: {
             status: "idle",
             type: "",
-            result: undefined
+            current_result_id: undefined
+            resultobjects: []
         },
         menus: {
             corpusmenu: "hidden",

@@ -6,7 +6,8 @@ import { combineReducers } from 'redux'
 const appReducer = combineReducers({
         corpus: corpusReducer,
         task: taskReducer,
-        menus: menuReducer
+        //resultobjects: taskReducer,
+        menus: menuReducer,
 })
 
 export default appReducer

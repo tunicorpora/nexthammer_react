@@ -14,7 +14,6 @@ export default ( { name, action,  dispatch, children } ) => (
         <div>
             <button 
                 onClick={action}
-                onClick={() => dispatch(toggleMenu( {menuname:"taskmenu", visibility: "hidden"} ))}
             >Launch</button>
         </div>
     </div>
