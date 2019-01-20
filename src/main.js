@@ -18,14 +18,16 @@ export default class Main extends Component{
 
     render() {
 
-        const {  menus, task  } =  this.props
+        const {  menus, task, dispatch  } =  this.props
+
+
 
         return (
             <main>
                 <TopBar {...this.props} />  
                 <DropDownMenu visibility_class={menus.corpusmenu}> <CorpusMenu {...this.props} /> </DropDownMenu>
                 <DropDownMenu visibility_class={menus.taskmenu}> <TaskMenu {...this.props} /> </DropDownMenu>
-                <TaskMonitor { ...task } />
+                <TaskMonitor { ...task }  dispatch={dispatch}/>
                 <CorpusDesktop  />
             </main>
         )

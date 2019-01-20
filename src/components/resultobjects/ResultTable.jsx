@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import FrequencyListRow from './FrequencyListRow.jsx';
+import {sortTable} from '../../redux/actions/task';
 
 /**
  *
@@ -8,41 +9,52 @@ import FrequencyListRow from './FrequencyListRow.jsx';
  * table-like format
  *
  */
-export default function ResultTable ({data, type}) {
+export default class ResultTable extends Component {
 
-    let rows = <tr></tr>;
-    let headers = <th></th>;
 
-    switch (type){
-        case "freqlist": {
-            rows = data.map((row, idx) => FrequencyListRow({data: row, idx: idx}))
-            break;
+    sort(rowname){ 
+        const { id, dispatch, data } = this.props;
+        dispatch(sortTable(id, rowname, data));
+    }
+
+
+    render(){
+
+        let rows = <tr></tr>;
+        let headers = <th></th>;
+        const { data, type, dispatch } = this.props;
+
+        switch (type){
+            case "freqlist": {
+                rows = data.map((row, idx) => FrequencyListRow({data: row, idx: idx}))
+                break;
+            }
         }
+
+        //Implement headers with sorting capabilities
+        if(data.length){
+            headers = Object.keys(data[0]).map((rowname) => (
+                    <th key={`header_${rowname}`} onClick={() => this.sort(rowname)}>
+                    {rowname}
+                    </th>))
+            rows = data.map((row, idx) => <tr key={idx}>{Object.keys(row).map((col)=> <td key={col}>{row[col]}</td>)}</tr>)
+        }
+
+
+        return (
+
+            <div>
+                <table>
+                    <thead>
+                        <tr>{headers}</tr>
+                    </thead>
+                    <tbody>
+                        { rows }
+                    </tbody>
+                </table>
+            </div>
+
+        )
     }
 
-    //Implement headers with sorting capabilities
-    if(data.length){
-        headers = Object.keys(data[0]).map((rowname) => (
-                <td key={`header_${rowname}`} OnClick={()=>console.log("clicked a header")}>
-                {rowname}
-                </td>))
-        rows = data.map((row, idx) => <tr key={idx}>{Object.keys(row).map((col)=> <td key={col}>{row[col]}</td>)}</tr>)
-    }
-
-
-    return (
-
-        <div>
-            <table>
-                <thead>
-        
-                </thead>
-                <tbody>
-                    { rows }
-                </tbody>
-            </table>
-        </div>
-
-    )
 }
-

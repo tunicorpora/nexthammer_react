@@ -1,12 +1,13 @@
 import {
     FREQUENCYLIST_REQUEST,
     FREQUENCYLIST_SUCCESS,
-    FREQUENCYLIST_ERROR
-    } from './../actiontypes'
-import api_url from './api_url'
-import {thunkCreator} from './utils.js'
-import React from 'react'
-import ResultObject from '../../components/resultobjects/ResultObject.jsx'
+    FREQUENCYLIST_ERROR,
+    SORT_TABLE
+    } from './../actiontypes';
+import api_url from './api_url';
+import {thunkCreator} from './utils.js';
+import React from 'react';
+import ResultObject from '../../components/resultobjects/ResultObject.jsx';
 
 /**
  *
@@ -32,5 +33,23 @@ export function fetchFreqlist(corpus) {
         types: [FREQUENCYLIST_REQUEST, FREQUENCYLIST_SUCCESS, FREQUENCYLIST_ERROR],
         promise: fetch(url).then(response => response.json())
     })
+}
+
+
+/**
+ *
+ * @param id of the result object
+ * @param colname the name of the column to sort by
+ * @param data the actual table
+ * @param direction ascending/descending
+ *
+ */
+export function sortTable(id, rowname, data, direction){
+
+    return {
+        type: SORT_TABLE,
+        id:id,
+        data: data
+    }
 
 } 

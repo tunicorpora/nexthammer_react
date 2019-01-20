@@ -20,7 +20,7 @@ const store = configureStore({
             status: "idle",
             type: "",
             current_result_id: undefined,
-            resultobjects: []
+            resultobjects: {}
         },
         menus: {
             corpusmenu: "hidden",

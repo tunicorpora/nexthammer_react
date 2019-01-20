@@ -4,13 +4,12 @@ import styles from './styles.scss';
 import requestResultObject from '../resultobjects/requestResultObject';
 
 
-export default ( task  ) => {
+export default (  {status, current_result_id, resultobjects, dispatch}  ) => {
 
-    const { status, current_result_id, resultobjects } = task;
     let Res = <div></div>;
 
     if(status == "ready"){
-        Res = requestResultObject(resultobjects, current_result_id);
+        Res = requestResultObject(resultobjects, current_result_id, dispatch);
     }
     return (
         <div className={styles.Home}>
