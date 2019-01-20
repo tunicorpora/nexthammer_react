@@ -8,6 +8,7 @@ import api_url from './api_url';
 import {thunkCreator} from './utils.js';
 import React from 'react';
 import ResultObject from '../../components/resultobjects/ResultObject.jsx';
+import {sortBy} from 'underscore';
 
 /**
  *
@@ -45,6 +46,12 @@ export function fetchFreqlist(corpus) {
  *
  */
 export function sortTable(id, rowname, data, direction){
+
+
+    data = sortBy(data, rowname)
+    if (direction == "desc") {
+        data = data.reverse()
+    }
 
     return {
         type: SORT_TABLE,
