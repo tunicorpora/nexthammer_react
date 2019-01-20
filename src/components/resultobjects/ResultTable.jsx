@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import FrequencyListRow from './FrequencyListRow.jsx';
 
@@ -8,62 +8,41 @@ import FrequencyListRow from './FrequencyListRow.jsx';
  * table-like format
  *
  */
-export default class ResultTable extends Component{
+export default function ResultTable ({data, type}) {
 
-    /**
-     *
-     * sort the table...
-     *
-     */
-    sort(rowname){
-        console.log(rowname)
+    let rows = <tr></tr>;
+    let headers = <th></th>;
+
+    switch (type){
+        case "freqlist": {
+            rows = data.map((row, idx) => FrequencyListRow({data: row, idx: idx}))
+            break;
+        }
+    }
+
+    //Implement headers with sorting capabilities
+    if(data.length){
+        headers = Object.keys(data[0]).map((rowname) => (
+                <td key={`header_${rowname}`} OnClick={()=>console.log("clicked a header")}>
+                {rowname}
+                </td>))
+        rows = data.map((row, idx) => <tr key={idx}>{Object.keys(row).map((col)=> <td key={col}>{row[col]}</td>)}</tr>)
     }
 
 
-    render(){
+    return (
 
-        const { data, type } = this.props;
+        <div>
+            <table>
+                <thead>
+        
+                </thead>
+                <tbody>
+                    { rows }
+                </tbody>
+            </table>
+        </div>
 
-        console.log(data);
-        let rows = <tr></tr>;
-        let headers = <th></th>;
-
-        switch (type){
-            case "freqlist": {
-                    rows = data.map((row, idx) => FrequencyListRow({data: row, idx: idx}))
-                break;
-            }
-        }
-
-        //Implement headers with sorting capabilities
-        if(data.length){
-            headers = Object.keys(data[0]).map((rowname) => (
-                    <td key={`header_${rowname}`} OnClick={()=>this.sort(rowname)}>
-                    {rowname}
-                    </td>))
-            rows = data.map((row, idx) => Object.key(row).map((col)=> <td>{row[col]}</td>))
-        }
-
-
-
-    
-        return (
-
-            <div>
-                <table>
-                    <thead>
-            
-                    </thead>
-                    <tbody>
-                        { rows }
-                    </tbody>
-                </table>
-            </div>
-
-        )
-    }
-
-
-
+    )
 }
 

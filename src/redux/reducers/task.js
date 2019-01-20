@@ -22,7 +22,7 @@ export default function taskReducer(state = {}, action) {
             const res_id = cuid();
             newtask.status = "ready";
             newtask.current_result_id = res_id;
-            newtask.resultobjects.push({id: res_id, res: task.result, type: "freqlist"});
+            newtask.resultobjects.push({id: res_id, data: task.result, type: "freqlist"});
             return newtask;
         }
         case FREQUENCYLIST_ERROR: {
