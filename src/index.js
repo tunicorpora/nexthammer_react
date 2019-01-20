@@ -19,7 +19,7 @@ const store = configureStore({
         task: {
             status: "idle",
             type: "",
-            current_result_id: undefined
+            current_result_id: undefined,
             resultobjects: []
         },
         menus: {

@@ -31,6 +31,6 @@ export function fetchFreqlist(corpus) {
     return thunkCreator({
         types: [FREQUENCYLIST_REQUEST, FREQUENCYLIST_SUCCESS, FREQUENCYLIST_ERROR],
         promise: fetch(url).then(response => response.json())
-    }
+    })
 
 } 
