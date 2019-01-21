@@ -2,9 +2,8 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import FrequencyListRow from './FrequencyListRow.jsx';
 import {sortTable} from '../../redux/actions/task';
-import './result-table.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
+import SortLink from './sort-link.jsx';
+import styles from './result-table.scss';
 
 /**
  *
@@ -15,9 +14,9 @@ import { faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
 export default class ResultTable extends Component {
 
 
-    sort(rowname){ 
+    sort(rowname, direction){ 
         const { id, dispatch, data } = this.props;
-        dispatch(sortTable(id, rowname, data));
+        dispatch(sortTable(id, rowname, data, direction));
     }
 
 
@@ -37,8 +36,11 @@ export default class ResultTable extends Component {
         //Implement headers with sorting capabilities
         if(data.length){
             headers = Object.keys(data[0]).map((rowname) => (
-                    <th key={`header_${rowname}`} onClick={() => this.sort(rowname)}>
-                    {rowname}
+                    <th key={`header_${rowname}`} >
+                        <div className={styles.headercont}>
+                            <div>{rowname}</div>
+                            <SortLink fun={this.sort.bind(this)} name={rowname}/>
+                        </div>
                     </th>))
             rows = data.map((row, idx) => <tr key={idx}>{Object.keys(row).map((col)=> <td key={col}>{row[col]}</td>)}</tr>)
         }
@@ -47,9 +49,7 @@ export default class ResultTable extends Component {
         return (
 
             <div>
-             <FontAwesomeIcon icon={faSortUp} />
-             <FontAwesomeIcon icon={faSortDown} />
-                <table>
+                <table className={styles.resulttable}>
                     <thead>
                         <tr>{headers}</tr>
                     </thead>

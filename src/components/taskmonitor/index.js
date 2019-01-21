@@ -12,7 +12,7 @@ export default (  {status, current_result_id, resultobjects, dispatch}  ) => {
         Res = requestResultObject(resultobjects, current_result_id, dispatch);
     }
     return (
-        <div className={styles.Home}>
+        <div >
         {Res}
         </div>
     )

@@ -1,6 +1,25 @@
-.fa {
-
-    font-size: 2em;
-    color:black;
-
+.headercont{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
+
+.sortercont{
+    display:flex;
+    flex-flow: column nowrap;
+    align-items:center;
+    justify-content:center;
+
+    svg{
+        &:hover{
+            cursor:pointer;
+            background:black;
+            color:white;
+        }
+    }
+
+    svg:nth-child(2){
+        margin-top:-7px;
+    }
+}
+

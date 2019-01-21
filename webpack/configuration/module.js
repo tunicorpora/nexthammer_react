@@ -26,21 +26,6 @@ export default {
                 },
             ]
       },
-//    //font awesome:
-//    {
-//        test: /\.(eot|ttf|otf)(\?.*)?$/,
-//        use: [
-//            {
-//                loader: 'file-loader',
-//                options: {
-//                     limit: 10000,
-//                     name: '[name].[ext]',
-//                     outputPath: '/fonts/',    // where the fonts will go
-//                     publicPath: '/assets'       // override the default path
-//                }
-//            }
-//            ]
-//    }
     ]
 }
 

@@ -6,7 +6,7 @@ export default (  ) => {
 
 
         return (
-            <div className={styles.Home}>
+            <div>
                 Corpus desktop....
             </div>
         )
