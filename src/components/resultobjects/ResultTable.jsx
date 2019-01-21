@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import FrequencyListRow from './FrequencyListRow.jsx';
 import {sortTable} from '../../redux/actions/task';
+import './result-table.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
 
 /**
  *
@@ -44,6 +47,8 @@ export default class ResultTable extends Component {
         return (
 
             <div>
+             <FontAwesomeIcon icon={faSortUp} />
+             <FontAwesomeIcon icon={faSortDown} />
                 <table>
                     <thead>
                         <tr>{headers}</tr>

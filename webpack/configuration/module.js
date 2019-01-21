@@ -5,7 +5,6 @@ export default {
             exclude: /node_modlles/,
             use: 'babel-loader'
         },
-
       {
         test: /\.scss$/, 
         use: [
@@ -26,7 +25,22 @@ export default {
                     loader: 'sass-loader' 
                 },
             ]
-      }
+      },
+//    //font awesome:
+//    {
+//        test: /\.(eot|ttf|otf)(\?.*)?$/,
+//        use: [
+//            {
+//                loader: 'file-loader',
+//                options: {
+//                     limit: 10000,
+//                     name: '[name].[ext]',
+//                     outputPath: '/fonts/',    // where the fonts will go
+//                     publicPath: '/assets'       // override the default path
+//                }
+//            }
+//            ]
+//    }
     ]
 }
 
