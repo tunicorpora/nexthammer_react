@@ -19,6 +19,11 @@ export default function requestResultObject(resultobjects, id, dispatch){
             return <ResultTable {...props} />;
             break
         }
+        case "ngramlist":{
+            const props = { ...obj, id:id, dispatch: dispatch};
+            return <ResultTable {...props} />;
+            break
+        }
         default:
             return <div> No result </div>;
     }

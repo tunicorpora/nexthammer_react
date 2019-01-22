@@ -2,6 +2,9 @@ import {
     FREQUENCYLIST_REQUEST,
     FREQUENCYLIST_SUCCESS,
     FREQUENCYLIST_ERROR,
+    NGRAM_REQUEST,
+    NGRAM_SUCCESS,
+    NGRAM_ERROR,
     SORT_TABLE
     } from './../actiontypes';
 import api_url from './api_url';
@@ -35,6 +38,25 @@ export function fetchFreqlist(corpus) {
 
     return thunkCreator({
         types: [FREQUENCYLIST_REQUEST, FREQUENCYLIST_SUCCESS, FREQUENCYLIST_ERROR],
+        promise: fetch(url).then(response => response.json())
+    })
+}
+
+
+/**
+ *
+ * Fetches a list of ngrams
+ *
+ */
+export function fetchNgramList(corpus) {
+
+    //dispatch(toggleMenu("task","hidden"))
+
+    const {name, active_language, picked_codes} = corpus;
+    const url = `${api_url}/corpora/${name}/${active_language}/ngrams/?${createCodes(picked_codes)}`;
+
+    return thunkCreator({
+        types: [NGRAM_REQUEST, NGRAM_SUCCESS, NGRAM_ERROR],
         promise: fetch(url).then(response => response.json())
     })
 }

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import FrequencyListRow from './FrequencyListRow.jsx';
 import {sortTable} from '../../redux/actions/task';
 import SortLink from './sort-link.jsx';
 import styles from './result-table.scss';
@@ -26,13 +25,6 @@ export default class ResultTable extends Component {
         let headers = <th></th>;
         const { data, type, dispatch } = this.props;
 
-        switch (type){
-            case "freqlist": {
-                rows = data.map((row, idx) => FrequencyListRow({data: row, idx: idx}))
-                break;
-            }
-        }
-
         //Implement headers with sorting capabilities
         if(data.length){
             headers = Object.keys(data[0]).map((rowname) => (
@@ -42,7 +34,12 @@ export default class ResultTable extends Component {
                             <SortLink fun={this.sort.bind(this)} name={rowname}/>
                         </div>
                     </th>))
-            rows = data.map((row, idx) => <tr key={idx}>{Object.keys(row).map((col)=> <td key={col}>{row[col]}</td>)}</tr>)
+            rows = data.map((row, idx) => 
+                <tr key={idx}>
+                {
+                    Object.keys(row).map((col)=> <td key={col}>{row[col]}</td>)
+                }
+                </tr>)
         }
 
 

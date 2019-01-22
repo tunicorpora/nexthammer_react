@@ -13,7 +13,6 @@ export default  ( {corpus, dispatch} ) => {
             dispatch={ dispatch }
         >
 
-        Frequency lists are... Well, you know what they are.
 
         </Task>
     )

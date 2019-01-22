@@ -1,5 +1,6 @@
-import React, {Component} from  'react'
-import Freqlist from './tasks/frequencylist'
+import React, {Component} from  'react';
+import Freqlist from './tasks/frequencylist';
+import Ngrams from './tasks/ngrams';
 
 export default class ActionMenu extends Component {
 
@@ -16,6 +17,7 @@ export default class ActionMenu extends Component {
                 The available actions may vary depending on the corpus
 
                 <Freqlist {...this.props} />
+                <Ngrams {...this.props} />
 
             
             </div>
