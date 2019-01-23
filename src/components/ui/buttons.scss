@@ -1,0 +1,23 @@
+.menubutton{
+
+    //background: darkgrey;
+    //border-radius:9px;
+    //color:white;
+    padding: 0.1em;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    //text-decoration: underline;
+    font-weight: bold;
+    margin-right: 1em;
+
+    div + div{
+        margin-left:0.2em;
+    }
+
+    &:hover{
+        cursor: pointer;
+        color:darken(brown,8%);
+        //color:black;
+    }
+}

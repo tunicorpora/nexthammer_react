@@ -14,21 +14,5 @@ $tbheight: 3em;
 
 }
 
-.button{
-
-    background: darkgrey;
-    border-radius:9px;
-    color:white;
-    padding: 1.2em;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    &:hover{
-        cursor: pointer;
-        background:darken(white,8%);
-        color:black;
-    }
-}
 
 
