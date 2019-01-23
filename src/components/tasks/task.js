@@ -1,6 +1,7 @@
 import React from 'react'
-import {toggleMenu} from '../../redux/actions';
+import {toggleMenu, hideAndLaunch} from '../../redux/actions';
 import Styles from './styles.scss';
+
 
 /**
  *
@@ -14,7 +15,7 @@ export default ( { name, action,  dispatch, children } ) => (
             {children}
         </div>
         <div>
-            <button onClick={action} >Launch</button>
+            <button onClick={hideAndLaunch.bind(null, dispatch, "taskmenu", action)} >Launch</button>
         </div>
     </div>
 )

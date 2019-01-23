@@ -1,0 +1,11 @@
+.task{
+    section{
+        display: flex;
+        flex-flow: row wrap;
+        margin-bottom:1em;
+
+        >div:first-child{
+            width: 10em;
+        }
+    }
+}
