@@ -18,16 +18,21 @@ export default class extends Component{
 
         return (
             <nav className={styles.topbar}>
-                <MenuButton 
-                    action={this.toggleMenu.bind(this, "corpusmenu")} 
-                    icon = {faBook}
-                    text = {"Corpus"}
-                />
-                <MenuButton 
-                    action={() => this.toggleMenu("taskmenu") } 
-                    icon = {faHammer}
-                    text = {"Task"}
-                />
+                <section className={styles.topbar}>
+                    <MenuButton 
+                        action={this.toggleMenu.bind(this, "corpusmenu")} 
+                        icon = {faBook}
+                        text = {"Corpus"}
+                    />
+                    <MenuButton 
+                        action={() => this.toggleMenu("taskmenu") } 
+                        icon = {faHammer}
+                        text = {"Task"}
+                    />
+                </section>
+                <section className={styles.logo}> 
+                Nexthammer
+                </section>
             </nav>
         )
 

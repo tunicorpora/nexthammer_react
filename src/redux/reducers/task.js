@@ -5,6 +5,9 @@ import {
     NGRAM_REQUEST,
     NGRAM_SUCCESS,
     NGRAM_ERROR,
+    CONCORDANCE_REQUEST,
+    CONCORDANCE_SUCCESS,
+    CONCORDANCE_ERROR,
     SORT_TABLE
     } from './../actiontypes'
 import { fetchFreqlist } from './../actions'
@@ -48,6 +51,25 @@ export default function taskReducer(state = {}, action) {
             return newtask;
         }
         case NGRAM_ERROR: {
+            console.log("request error")
+            return { ...state, ...task }
+            break;
+        }
+
+        case CONCORDANCE_REQUEST: {
+            let newtask = Object.assign({}, state);
+            newtask.status = "running";
+            return newtask
+        }
+        case CONCORDANCE_SUCCESS: {
+            let newtask = Object.assign({}, state);
+            const res_id = cuid();
+            newtask.status = "ready";
+            newtask.current_result_id = res_id;
+            newtask.resultobjects[res_id] = {data: task.result, type: "ngramlist"};
+            return newtask;
+        }
+        case CONCORDANCE_ERROR: {
             console.log("request error")
             return { ...state, ...task }
             break;

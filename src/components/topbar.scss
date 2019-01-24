@@ -1,18 +1,18 @@
 
 $tbheight: 3em;
+
 .topbar {
+    padding-left:0.2em;
     height: $tbheight;
     //border-bottom:1px solid darkgrey;
     display:flex;
     flex-flow: row nowrap;
-
-    > div + div{
-        margin-left:1em;
-
-    
-    }
-
+    align-items: center;
+    width:100%;
 }
 
 
-
+.logo{
+    float:right;
+    margin-right:1em;
+}

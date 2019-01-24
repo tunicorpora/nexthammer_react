@@ -1,6 +1,7 @@
 import React, {Component} from  'react';
 import Freqlist from './tasks/frequencylist';
 import Ngrams from './tasks/ngrams';
+import Concordance from './tasks/concordance';
 
 export default class ActionMenu extends Component {
 
@@ -18,6 +19,7 @@ export default class ActionMenu extends Component {
 
                 <Freqlist {...this.props} />
                 <Ngrams {...this.props} />
+                <Concordance {...this.props} />
 
             
             </div>
